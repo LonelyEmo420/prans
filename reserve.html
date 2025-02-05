@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Booking System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .nav {
+            background: #222;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* Ensure the menu stays above other content */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a slight shadow for distinction */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .nav ul li {
+            margin: 0 15px;
+        }
+        .nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+        .nav ul li a:hover {
+            background: #555;
+            border-radius: 5px;
+        }
+        .search-bar {
+            display: flex;
+        }
+        .search-bar input {
+            padding: 5px;
+            border: none;
+            border-radius: 3px;
+        }
+        .search-bar button {
+            padding: 5px 10px;
+            border: none;
+            background: #28a745;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .booking-form, .login-form {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #28a745;
+            color: #fff;
+            cursor: pointer;
+        }
+        .schedule {
+            margin-top: 20px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: left;
+            }
+            .nav ul li {
+                margin: 10px 0;
+            }
+            .search-bar {
+                display: none;
+            }
+            .nav.active ul {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+                cursor: pointer;
+                padding: 10px;
+            }
+            .hamburger div {
+                width: 25px;
+                height: 3px;
+                background-color: #fff;
+                margin: 5px 0;
+            }
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 769px) {
+            .hamburger {
+                display: none;
+            }
+        }
+
+        /* Padding adjustment for content to avoid being hidden behind the fixed navbar */
+        .content {
+            padding-top: 80px; /* Same as the height of the fixed navbar */
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="reserve.html">Reserve</a></li>
+            <li><a href="view.html">View</a></li>
+            <li><a href="update.html">Update</a></li>
+            <li><a href="#">Delete</a></li>
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
+        </div>
+    </nav>
+
+    <div class="container content">
+        <div class="booking-form">
+            <h2>Book a Slot</h2>
+            <form>
+                <label for="sport">Choose a sport:</label>
+                <select id="sport">
+                    <option>Chess</option>
+                    <option>Dart</option>
+                    <option>ESports</option>
+                    <option>Taekwondo</option>
+                    <option>Basketball</option>
+                    <option>Table Tennis</option>
+                </select>
+                <label for="facility">Choose a facility room:</label>
+                <select id="facility">
+                    <option>Room Nimo</option>
+                    <option>Room Nako</option>
+                    <option>Room Niya</option>
+                </select>
+                <label for="students">Number of Students:</label>
+                <input type="number" id="students" min="1" placeholder="Enter number of students">
+                <label for="date">Select Date:</label>
+                <input type="date" id="date">
+                <label for="time">Select Time:</label>
+                <input type="time" id="time">
+                <button type="submit">Book Now</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('.nav');
+            nav.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
